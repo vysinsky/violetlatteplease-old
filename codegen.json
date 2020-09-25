@@ -1,0 +1,21 @@
+{
+  "schema": "./schema.graphql",
+  "documents": "graphql/**/*.graphql",
+  "overwrite": true,
+  "config": {
+    "namingConvention": "keep",
+    "transformUnderscore": true
+  },
+  "hooks": {
+    "afterOneFileWrite": ["prettier --write"]
+  },
+  "generates": {
+    "./generated/sdk.ts": {
+      "plugins": [
+        "typescript",
+        "typescript-operations",
+        "typescript-graphql-request"
+      ]
+    }
+  }
+}
